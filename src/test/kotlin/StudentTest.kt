@@ -1,3 +1,6 @@
+import br.com.pdpano.school.domain.student.Cpf
+import br.com.pdpano.school.domain.student.Email
+import br.com.pdpano.school.domain.student.Phone
 import org.junit.jupiter.api.Assertions.*
 import kotlin.test.Test
 
@@ -14,5 +17,13 @@ internal class StudentTest {
         val mock = "443.450.428-28"
 
         assertDoesNotThrow { Cpf(mock) }
+    }
+
+    @Test
+    fun `phone should be valid`() {
+        val ddd = "11"
+        val number = "972134247"
+
+        assertDoesNotThrow { Phone(ddd, number) }
     }
 }

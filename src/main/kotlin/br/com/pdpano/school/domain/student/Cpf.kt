@@ -1,3 +1,8 @@
+package br.com.pdpano.school.domain.student
+
+/**
+ * Value Object para CPF
+ */
 class Cpf(number: String) {
     val number = validateCpf(number)
 

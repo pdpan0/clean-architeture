@@ -1,3 +1,8 @@
+package br.com.pdpano.school.domain.student
+
+/**
+ * Value Object para br.com.pdpano.school.domain.student.Email
+ */
 class Email(email: String) {
     val address: String = validateEmail(email)
 
