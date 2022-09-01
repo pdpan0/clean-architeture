@@ -1,6 +1,6 @@
-import br.com.pdpano.school.domain.student.Cpf
-import br.com.pdpano.school.domain.student.Email
-import br.com.pdpano.school.domain.student.Phone
+import br.com.pdpano.school.domain.student.*
+import br.com.pdpano.school.domain.student.exceptions.PhoneLimitExceededException
+import br.com.pdpano.school.usecase.student.register.StudentDTO
 import org.junit.jupiter.api.Assertions.*
 import kotlin.test.Test
 
@@ -25,5 +25,21 @@ internal class StudentTest {
         val number = "972134247"
 
         assertDoesNotThrow { Phone(ddd, number) }
+    }
+
+    @Test
+    fun `student shouldnt more two phone registered`() {
+        val ddd = "11"
+        val number = "987654321"
+
+        assertThrows(PhoneLimitExceededException::class.java) {
+            val student = StudentBuilder().build(
+                "Lucas", "443.450.428-28", "lucas.martins@gmail.com", "teste123"
+            )
+
+            student.phone(ddd, number)
+            student.phone(ddd, number)
+            student.phone(ddd, number)
+        }
     }
 }

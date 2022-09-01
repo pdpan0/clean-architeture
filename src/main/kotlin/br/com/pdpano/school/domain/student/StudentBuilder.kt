@@ -17,7 +17,7 @@ class StudentBuilder {
     }
 
     fun phone(ddd: String, number: String): StudentBuilder {
-        this.student?.phone?.add(Phone(ddd, number))
+        this.student?.addPhone(ddd, number)
         return this
     }
 }
